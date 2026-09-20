@@ -1,27 +1,6 @@
 import { verifyLocally, hashBlock } from "./ledger-core.js";
 
-/* ------------------------------------------------------------------ state */
 
-const state = {
-  view: "register",
-  institutes: [],
-  instituteId: "",
-  apiKey: "",
-  session: null,
-  blocks: [],
-  audit: null,
-  certificates: [],
-  counts: null,
-  filter: "",
-  mineOnly: false,
-  expanded: null,      // block height open on the chain screen
-  detail: undefined,   // certificate detail on the verify screen
-  verifyQuery: "",
-  formErrors: {},
-  draft: blankDraft(),
-  justArrived: null,
-  busy: false
-};
 
 const FIELDS = [
   ["certificateNumber", "Certificate number", "text"],
@@ -47,6 +26,29 @@ function blankDraft() {
   FIELDS.forEach(f => (d[f[0]] = ""));
   return d;
 }
+
+/* ------------------------------------------------------------------ state */
+
+const state = {
+  view: "register",
+  institutes: [],
+  instituteId: "",
+  apiKey: "",
+  session: null,
+  blocks: [],
+  audit: null,
+  certificates: [],
+  counts: null,
+  filter: "",
+  mineOnly: false,
+  expanded: null,      // block height open on the chain screen
+  detail: undefined,   // certificate detail on the verify screen
+  verifyQuery: "",
+  formErrors: {},
+  draft: blankDraft(),
+  justArrived: null,
+  busy: false
+};
 
 /* -------------------------------------------------------------- transport */
 
