@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlashPoint Certificate Ledger</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="mark">
+    <b>FlashPoint Certificate Ledger</b>
+    <span>Proof of concept — D.E.A.L. (Digital Education Avatar Lead)</span>
+  </div>
+  <div class="whoami">
+    <label for="institute">Institute</label>
+    <select id="institute"></select>
+    <label for="apikey">Key</label>
+    <input id="apikey" type="password" placeholder="institute key" autocomplete="off">
+    <span id="signedin" class="pill grey">Not signed in</span>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="rail">
+    <p class="railhead">Ledger state</p>
+    <dl id="railstats"></dl>
+    <button class="btn primary" id="go-issue">Issue a certificate</button>
+    <button class="btn" id="go-check">Verify the chain in this browser</button>
+    <div class="audit" id="auditbox" hidden></div>
+    <p class="railnote">Every event is sealed into a block carrying a Secure Hash Algorithm 256-bit (SHA-256) digest of its contents and of the block before it. The check above recomputes all of those digests here in your browser rather than trusting the server. Seal times are shown in Coordinated Universal Time (UTC).</p>
+  </aside>
+
+  <main class="main">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-view="register" aria-selected="true">Register</button>
+      <button class="tab" role="tab" data-view="ledger" aria-selected="false">Chain</button>
+      <button class="tab" role="tab" data-view="issue" aria-selected="false">Issue</button>
+      <button class="tab" role="tab" data-view="verify" aria-selected="false">Verify</button>
+    </div>
+    <div id="view"><p class="loading">Loading the ledger…</p></div>
+  </main>
+</div>
+
+<dialog id="modal"></dialog>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

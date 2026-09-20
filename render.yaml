@@ -1,0 +1,21 @@
+# Optional. Render can read this instead of you filling the form by hand:
+# New > Blueprint > point it at this repository.
+services:
+  - type: web
+    name: flashpoint-certificate-ledger
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false          # paste the Neon connection string in the dashboard
+      - key: KEY_ATLANTIC
+        generateValue: true
+      - key: KEY_FUNDY
+        generateValue: true
+      - key: KEY_BOWVALLEY
+        generateValue: true
+      - key: RUN_MIGRATIONS
+        value: "true"
